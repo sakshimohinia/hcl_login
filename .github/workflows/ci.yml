@@ -21,16 +21,16 @@ jobs:
         ports:
           - 3306:3306
         options: >-
-          --health-cmd="mysqladmin ping -h localhost"
+          --health-cmd="mysqladmin ping -h 127.0.0.1 -uroot -proot"
           --health-interval=10s
           --health-timeout=5s
-          --health-retries=5
+          --health-retries=10
 
     env:
-      DB_URL: jdbc:mysql://localhost:3306/hcl
+      DB_URL: jdbc:mysql://127.0.0.1:3306/hcl
       DB_USERNAME: root
       DB_PASSWORD: root
-     
+      JWT_SECRET: ci-demo-secret-key-at-least-32-characters-long
 
     steps:
       - name: Checkout code
@@ -44,14 +44,14 @@ jobs:
           cache: maven
 
       - name: Build and test
-        working-directory: auth_backend
+        working-directory: auth-backend
         run: mvn -B clean verify
 
       - name: Upload JAR
         uses: actions/upload-artifact@v4
         with:
           name: backend-jar
-          path: auth_backend/target/*.jar
+          path: auth-backend/target/*.jar
 
   frontend:
     name: Frontend (Angular)
