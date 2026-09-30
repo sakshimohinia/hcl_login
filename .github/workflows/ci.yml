@@ -16,7 +16,7 @@ jobs:
       mysql:
         image: mysql:8.0
         env:
-          MYSQL_ROOT_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          MYSQL_ROOT_PASSWORD: root
           MYSQL_DATABASE: hcl
         ports:
           - 3306:3306
@@ -29,7 +29,7 @@ jobs:
     env:
       DB_URL: jdbc:mysql://localhost:3306/hcl
       DB_USERNAME: root
-      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+      DB_PASSWORD: root
      
 
     steps:
