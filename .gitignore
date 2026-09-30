@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.angular/
+target/
+.idea/
+.vscode/
+.env
+*.log
