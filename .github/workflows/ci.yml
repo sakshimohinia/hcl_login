@@ -30,7 +30,7 @@ jobs:
       DB_URL: jdbc:mysql://127.0.0.1:3306/hcl
       DB_USERNAME: root
       DB_PASSWORD: root
-      JWT_SECRET: ci-demo-secret-key-at-least-32-characters-long
+  
 
     steps:
       - name: Checkout code
