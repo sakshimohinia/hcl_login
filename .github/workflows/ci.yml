@@ -17,7 +17,7 @@ jobs:
         image: mysql:8.0
         env:
           MYSQL_ROOT_PASSWORD: ${{ secrets.DB_PASSWORD }}
-          MYSQL_DATABASE: logindb
+          MYSQL_DATABASE: hcl
         ports:
           - 3306:3306
         options: >-
